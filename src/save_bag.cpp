@@ -1,3 +1,5 @@
+// part of Stage-1 of real-time 
+// Saves all the markers contained in the topic /aak_aruco_poses to a bag file
 #include <ros/ros.h>
 #include <tf/transform_broadcaster.h>
 #include <rosbag/bag.h>
@@ -13,7 +15,7 @@ void poseCallback_aruco(const aruco_mapping::ArucoMarker& msg){
   aruco_mapping::ArucoMarker mod_msg;
 
   rosbag::Bag bag;
-  bag.open("/home/lizi/bags/aruco.bag", rosbag::bagmode::Write);
+  bag.open("/home/fauzan/bags/aruco.bag", rosbag::bagmode::Write);
 
   tf::TransformListener listener;
   tf::StampedTransform aruco_camera;

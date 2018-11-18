@@ -1,3 +1,6 @@
+// Part of Stage-2 
+// Calculates the transform between aruco_mapping "/world" and hector_mapping "/map"
+// Basically, bridges the aruco_mapping and hector_slam package 
 #include <ros/ros.h>
 #include <tf/transform_broadcaster.h>
 #include <rosbag/bag.h>
@@ -52,7 +55,7 @@ int main(int argc, char** argv){
   ros::init(argc, argv, "read_bag");
 
   rosbag::Bag bag;
-  bag.open("/home/lizi/bags/aruco.bag");
+  bag.open("/home/fauzan/bags/aruco.bag");
   ROS_INFO_STREAM("Bag opened.");
   std::vector<std::string> topics;
   topics.push_back(std::string("map_aruco_pose"));

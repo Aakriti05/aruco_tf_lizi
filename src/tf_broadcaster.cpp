@@ -21,9 +21,9 @@ void poseCallback_aruco(){
   }
 
   tf::StampedTransform lizi_camera;
-  // listener.waitForTransform( "/softkinetic_camera_rgb_optical_frame", "/map", ros::Time(0), ros::Duration(1));
+  // listener.waitForTransform( "/camera_rgb_optical_frame", "/map", ros::Time(0), ros::Duration(1));
   try{
-    listener.lookupTransform("/softkinetic_camera_rgb_optical_frame", "/map", ros::Time(0), lizi_camera); // A
+    listener.lookupTransform("/camera_rgb_optical_frame", "/map", ros::Time(0), lizi_camera); // A
   }
   catch (tf::TransformException &ex) {
     ROS_ERROR("%s",ex.what());
@@ -49,7 +49,7 @@ int main(int argc, char** argv){
   tf::StampedTransform lizi_camera;
 
   listener.waitForTransform("/camera_position", "/world", ros::Time(0), ros::Duration(1));
-  listener.waitForTransform( "/softkinetic_camera_rgb_optical_frame", "/map", ros::Time(0), ros::Duration(1));
+  listener.waitForTransform( "/camera_rgb_optical_frame", "/map", ros::Time(0), ros::Duration(1));
 
   ros::Rate rate(50.0);
   while(node.ok()){
@@ -65,7 +65,7 @@ int main(int argc, char** argv){
     }
 
     try{
-      listener.lookupTransform("/softkinetic_camera_rgb_optical_frame", "/map", ros::Time(0), lizi_camera); // A
+      listener.lookupTransform("/camera_rgb_optical_frame", "/map", ros::Time(0), lizi_camera); // A
     }
     catch (tf::TransformException &ex) {
       ROS_ERROR("%s",ex.what());

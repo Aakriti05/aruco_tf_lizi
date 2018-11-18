@@ -1,3 +1,5 @@
+// Part of Stage-2
+// Publishes visualization_msg of aruco markers to visualize in RVIZ
 #include <ros/ros.h>
 #include <tf/transform_broadcaster.h>
 #include <rosbag/bag.h>
@@ -79,7 +81,7 @@ int main(int argc, char** argv){
   marker_visualization_pub_ = node.advertise<visualization_msgs::Marker>("view_all_markers",1);
 
   rosbag::Bag bag;
-  bag.open("/home/lizi/bags/aruco.bag");
+  bag.open("/home/fauzan/bags/aruco.bag");
   ROS_INFO_STREAM("Bag opened.");
   std::vector<std::string> topics;
   topics.push_back(std::string("map_aruco_pose"));
